@@ -7,7 +7,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace TestingSystem.Models
 {
-    internal class Question
+    public class Question
     {
         public string Name { get; set; }
         public List<string> answers;

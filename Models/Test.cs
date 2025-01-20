@@ -72,5 +72,18 @@ namespace TestingSystem.Models
             else
                 return Score.Unsatisfactory;
         }
+
+        public List<Question> GetWrongAnswers()
+        {
+            var wrongAnswersList = new List<Question>();
+            for (int i = 0; i < questions.Count; i++)
+            {
+                if (!questions[i].isAnswerCorrect(answers[i]))
+                {
+                    wrongAnswersList.Add(questions[i]);
+                }
+            }
+            return wrongAnswersList;
+        }
     }
 }

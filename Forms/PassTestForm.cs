@@ -121,8 +121,10 @@ namespace TestingSystem.Forms
             };
             if (questionNumber >= questionsCount - 1)
             {
+                var wrongAnswers = currentTest.GetWrongAnswers();
                 var score = currentTest.CalculateScore();
-                MessageBox.Show($"Ваша оценка: {dic[score]}");
+                var resultForm = new ResultsForm(wrongAnswers, dic[score], questionsCount - wrongAnswers.Count);
+                resultForm.ShowDialog();
             }
             else
             {                
