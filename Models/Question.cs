@@ -7,17 +7,26 @@ using System.Windows.Forms.VisualStyles;
 
 namespace TestingSystem.Models
 {
+    public enum DifficultyLevel
+    {
+        Easy,
+        Medium,
+        Hard
+    }
+
     public class Question
     {
         public string Name { get; set; }
         public List<string> answers;
         public string correctAnswer;
+        public DifficultyLevel Difficulty { get; set; }
 
-        public Question(string name, List<string> answers, int correctAnswerNumber)
+        public Question(string name, List<string> answers, int correctAnswerNumber, DifficultyLevel difficulty = DifficultyLevel.Easy)
         {
             this.Name = name;
             this.answers = answers;
             this.correctAnswer = answers[correctAnswerNumber];
+            this.Difficulty = difficulty;
         }
 
         public void ChangeCorrectAnswer(int correctAnswerNumber)

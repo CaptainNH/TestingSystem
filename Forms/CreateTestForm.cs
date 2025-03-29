@@ -67,6 +67,9 @@ namespace TestingSystem.Forms
 
             AddTestsToListView();
 
+            comboBoxDifficulty.Items.AddRange(Enum.GetNames(typeof(DifficultyLevel)));
+            comboBoxDifficulty.SelectedIndex = 0;
+
         }
 
         private void AddTestsToListView()
@@ -177,7 +180,8 @@ namespace TestingSystem.Forms
                 if (rb.Checked)
                     correctAnswer = (int)rb.Tag;
             }
-            currentTest.AddQuestion(questionName, answers, correctAnswer);
+            var difficulty = (DifficultyLevel)comboBoxDifficulty.SelectedIndex;
+            currentTest.AddQuestion(questionName, answers, correctAnswer, difficulty);
             listViewQuestions.Items.Add(questionName);
             textBoxAnswer1.Text = "";
             textBoxAnswer2.Text = "";

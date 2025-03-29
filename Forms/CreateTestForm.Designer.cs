@@ -48,6 +48,8 @@
             textBoxQuestionName = new TextBox();
             radioButton1 = new RadioButton();
             label1 = new Label();
+            comboBoxDifficulty = new ComboBox();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -75,7 +77,7 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer3);
-            splitContainer1.Size = new Size(800, 450);
+            splitContainer1.Size = new Size(800, 561);
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 0;
             // 
@@ -92,7 +94,7 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(listViewQuestions);
-            splitContainer2.Size = new Size(266, 450);
+            splitContainer2.Size = new Size(266, 561);
             splitContainer2.SplitterDistance = 135;
             splitContainer2.TabIndex = 0;
             // 
@@ -101,7 +103,7 @@
             listViewTests.Dock = DockStyle.Fill;
             listViewTests.Location = new Point(0, 0);
             listViewTests.Name = "listViewTests";
-            listViewTests.Size = new Size(135, 450);
+            listViewTests.Size = new Size(135, 561);
             listViewTests.TabIndex = 0;
             listViewTests.UseCompatibleStateImageBehavior = false;
             // 
@@ -110,7 +112,7 @@
             listViewQuestions.Dock = DockStyle.Fill;
             listViewQuestions.Location = new Point(0, 0);
             listViewQuestions.Name = "listViewQuestions";
-            listViewQuestions.Size = new Size(127, 450);
+            listViewQuestions.Size = new Size(127, 561);
             listViewQuestions.TabIndex = 0;
             listViewQuestions.UseCompatibleStateImageBehavior = false;
             // 
@@ -130,6 +132,8 @@
             // 
             // splitContainer3.Panel2
             // 
+            splitContainer3.Panel2.Controls.Add(label3);
+            splitContainer3.Panel2.Controls.Add(comboBoxDifficulty);
             splitContainer3.Panel2.Controls.Add(label2);
             splitContainer3.Panel2.Controls.Add(buttonDeleteQuestion);
             splitContainer3.Panel2.Controls.Add(buttonAddQuestion);
@@ -142,8 +146,8 @@
             splitContainer3.Panel2.Controls.Add(radioButton1);
             splitContainer3.Panel2.Controls.Add(label1);
             splitContainer3.Panel2.Enabled = false;
-            splitContainer3.Size = new Size(530, 450);
-            splitContainer3.SplitterDistance = 145;
+            splitContainer3.Size = new Size(530, 561);
+            splitContainer3.SplitterDistance = 180;
             splitContainer3.TabIndex = 0;
             // 
             // buttonDeleteTest
@@ -199,7 +203,7 @@
             // 
             // buttonDeleteQuestion
             // 
-            buttonDeleteQuestion.Location = new Point(11, 247);
+            buttonDeleteQuestion.Location = new Point(11, 323);
             buttonDeleteQuestion.Margin = new Padding(5);
             buttonDeleteQuestion.Name = "buttonDeleteQuestion";
             buttonDeleteQuestion.RightToLeft = RightToLeft.No;
@@ -211,7 +215,7 @@
             // 
             // buttonAddQuestion
             // 
-            buttonAddQuestion.Location = new Point(374, 247);
+            buttonAddQuestion.Location = new Point(376, 323);
             buttonAddQuestion.Margin = new Padding(5);
             buttonAddQuestion.Name = "buttonAddQuestion";
             buttonAddQuestion.RightToLeft = RightToLeft.No;
@@ -288,11 +292,29 @@
             label1.TabIndex = 2;
             label1.Text = "Вопрос:";
             // 
+            // comboBoxDifficulty
+            // 
+            comboBoxDifficulty.FormattingEnabled = true;
+            comboBoxDifficulty.Location = new Point(243, 241);
+            comboBoxDifficulty.Name = "comboBoxDifficulty";
+            comboBoxDifficulty.Size = new Size(151, 28);
+            comboBoxDifficulty.TabIndex = 14;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.Location = new Point(11, 235);
+            label3.Name = "label3";
+            label3.Size = new Size(226, 31);
+            label3.TabIndex = 15;
+            label3.Text = "Уровень сложности:";
+            // 
             // CreateTestForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 561);
             Controls.Add(splitContainer1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Name = "CreateTestForm";
@@ -337,5 +359,7 @@
         private TextBox textBoxQuestionName;
         private Label label2;
         private Button buttonDeleteTest;
+        private Label label3;
+        private ComboBox comboBoxDifficulty;
     }
 }
