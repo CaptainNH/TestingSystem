@@ -4,9 +4,13 @@ namespace TestingSystem
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(bool isAdmin)
         {
             InitializeComponent();
+            if (!isAdmin)
+            {
+                buttonCreateTest.Visible = false;
+            }
         }
 
         private void buttonCreateTest_Click(object sender, EventArgs e)

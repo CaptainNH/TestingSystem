@@ -1,3 +1,5 @@
+using TestingSystem.Forms;
+
 namespace TestingSystem
 {
     internal static class Program
@@ -11,7 +13,10 @@ namespace TestingSystem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            var loginForm = new LoginForm();
+            Application.Run(loginForm);
+            if (loginForm.IsAuthenticated)
+                Application.Run(new MainForm(loginForm.IsAdmin));
         }
     }
 }
