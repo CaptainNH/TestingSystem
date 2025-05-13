@@ -15,6 +15,12 @@ namespace TestingSystem.Models
         private DifficultyLevel currentDifficulty = DifficultyLevel.Easy;
         private int easyCorrect = 0;
         private int mediumCorrect = 0;
+        private Dictionary<DifficultyLevel, double> difficultyWeights = new Dictionary<DifficultyLevel, double>
+        {
+            { DifficultyLevel.Easy, 1.0 },
+            { DifficultyLevel.Medium, 1.5 },
+            { DifficultyLevel.Hard, 2.0 }
+        };
 
         public Test(string name)
         {
@@ -123,33 +129,43 @@ namespace TestingSystem.Models
 
         public Score CalculateScore()
         {
+            double totalPossibleScore = 0; // Максимально возможный балл (если все ответы правильные)
+            double userScore = 0;         // Набранный балл пользователя
             int answeredCount = 0;
-            correctAnswersCount = 0;
 
-            for (int i = 0; i < questions.Count; i++)
+            foreach (var question in questions)
             {
-                // Проверяем, что на вопрос был дан ответ (не пустая строка)
-                if (!string.IsNullOrEmpty(answers[i]))
+                // Находим коэффициент сложности вопроса
+                double weight = difficultyWeights[question.Difficulty];
+
+                // Увеличиваем максимальный балл
+                totalPossibleScore += weight;
+
+                // Если ответ дан и он правильный, добавляем балл с учётом веса
+                int answerIndex = questions.IndexOf(question);
+                if (answerIndex < answers.Count && !string.IsNullOrEmpty(answers[answerIndex]))
                 {
                     answeredCount++;
-                    if (questions[i].isAnswerCorrect(answers[i]))
+                    if (question.isAnswerCorrect(answers[answerIndex]))
                     {
-                        correctAnswersCount++;
+                        userScore += weight;
                     }
                 }
             }
 
-            // Если не было отвеченных вопросов, возвращаем минимальную оценку
+            // Если не было отвеченных вопросов, возвращаем "Неудовлетворительно"
             if (answeredCount == 0)
                 return Score.Unsatisfactory;
 
-            double correctRatio = (double)correctAnswersCount / answeredCount;
+            // Вычисляем процент правильных ответов с учётом весов
+            double scoreRatio = userScore / answeredCount;
 
-            if (correctRatio >= 0.85)
+            // Определяем оценку
+            if (scoreRatio >= 0.85)
                 return Score.Excellent;
-            else if (correctRatio >= 0.6)
+            else if (scoreRatio >= 0.6)
                 return Score.Good;
-            else if (correctRatio >= 0.35)
+            else if (scoreRatio >= 0.35)
                 return Score.Satisfactory;
             else
                 return Score.Unsatisfactory;
