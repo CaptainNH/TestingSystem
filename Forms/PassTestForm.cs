@@ -26,6 +26,7 @@ namespace TestingSystem.Forms
         public PassTestForm()
         {
             InitializeComponent();
+            this.listViewTests.BackColor = Color.CornflowerBlue;
         }
 
         private void PassTestForm_Load(object sender, EventArgs e)

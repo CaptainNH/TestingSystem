@@ -27,6 +27,8 @@ namespace TestingSystem.Forms
         {
             InitializeComponent();
             this.FormClosing += CreateTestForm_FormClosing;
+            this.listViewTests.BackColor = Color.CornflowerBlue;
+            this.listViewQuestions.BackColor = Color.CornflowerBlue;
         }
 
         private void CreateTestForm_Load(object sender, EventArgs e)
