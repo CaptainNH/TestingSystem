@@ -55,6 +55,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.BackColor = Color.CornflowerBlue;
             splitContainer1.Panel2.Controls.Add(button1);
             splitContainer1.Panel2.Controls.Add(buttonNext);
             splitContainer1.Panel2.Controls.Add(radioButton3);

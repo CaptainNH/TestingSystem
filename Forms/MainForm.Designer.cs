@@ -56,6 +56,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(291, 216);
             Controls.Add(buttonPassTest);
             Controls.Add(buttonCreateTest);
